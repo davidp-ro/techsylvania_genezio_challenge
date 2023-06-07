@@ -5,6 +5,6 @@ sdk:
   language: ts
   path: ./sdk/
 classes:
-  - path: hello.ts
+  - path: activities.ts
     type: jsonrpc
     methods: []
