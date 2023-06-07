@@ -1,0 +1,10 @@
+name: techsylvania-chall
+region: eu-central-1
+cloudProvider: aws
+sdk:
+  language: ts
+  path: ./sdk/
+classes:
+  - path: hello.ts
+    type: jsonrpc
+    methods: []
