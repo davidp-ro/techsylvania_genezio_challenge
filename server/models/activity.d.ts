@@ -1,3 +1,5 @@
+import { PasswordGenOptions } from "./passwordGenerator";
+
 type TimeOfDay = "morning" | "afternoon" | "evening" | "night";
 
 type HardActivityType =
@@ -30,6 +32,8 @@ export interface Activity {
 interface PageData {
   title: string;
 }
+
+export type UseActivityOptions = PasswordGenOptions;
 
 export interface UseActivityResult {
   pageData: PageData;

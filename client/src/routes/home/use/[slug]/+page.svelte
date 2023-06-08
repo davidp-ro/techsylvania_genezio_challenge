@@ -4,6 +4,7 @@
 
   import {
     GenezioWrapper,
+    type IPasswordGenOptions,
     type IUseActivityResult,
   } from "$lib/services/genezio";
   import { isLoading } from "$lib/globalStores";
@@ -16,7 +17,28 @@
 
   onMount(async () => {
     isLoading.set(true);
-    result = await GenezioWrapper.activities.useActivity(data.interactionName);
+
+    // Handle custom cases where an interaction requires options
+    switch (data.interactionName) {
+      case "generate.password":
+        const generatorOptions: IPasswordGenOptions = {
+          length: 16,
+          numbers: true,
+          specialChars: true,
+        };
+        result = await GenezioWrapper.activities.useActivity(
+          "generate.password", // Special case
+          generatorOptions
+        );
+        break;
+      default:
+        result = await GenezioWrapper.activities.useActivity(
+          data.interactionName,
+          null
+        );
+        break;
+    }
+
     isLoading.set(false);
   });
 </script>

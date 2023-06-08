@@ -1,11 +1,13 @@
 import { GamesIntegration } from "./integrations/games";
 import { HackerNewsIntegration } from "./integrations/hackerNews";
+import { PasswordGeneratorIntegration } from "./integrations/passwordGen";
 import { SpotifyIntegration } from "./integrations/spotify";
 import {
   TimeOfDay,
   Activity,
   InteractionName,
   UseActivityResult,
+  UseActivityOptions,
 } from "./models/activity";
 import {
   MORNING_ACTIVITIES,
@@ -29,7 +31,8 @@ export class ActivitiesService {
   }
 
   public async useActivity(
-    interactionName: InteractionName
+    interactionName: InteractionName,
+    options: UseActivityOptions | undefined,
   ): Promise<UseActivityResult> {
     switch (interactionName) {
       case "fetch.hackernews":
@@ -62,6 +65,30 @@ export class ActivitiesService {
             embedHTML: GamesIntegration.getWebsiteEmbedCode(),
           },
         };
+      case "generate.password":
+        try {
+          if (!options) {
+            throw new Error("No options provided");
+          }
+          const password = await PasswordGeneratorIntegration.generatePassword(options);
+          return {
+            pageData: {
+              title: "Your generated password",
+            },
+            success: true,
+            data: password,
+          };
+        } catch (e) {
+          console.error(e);
+          
+          return {
+            pageData: {
+              title: "Error generating password",
+            },
+            success: false,
+            data: JSON.stringify(e),
+          };
+        }
       default:
         return {
           pageData: { title: "Unknown interaction" },

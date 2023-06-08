@@ -5,6 +5,7 @@
   } from "$lib/services/genezio";
   import GamesEmbed from "./gamesEmbed.svelte";
   import HackerNews from "./hackerNews.svelte";
+  import PasswordGen from "./passwordGen.svelte";
   import SpotifyEmbed from "./spotifyEmbed.svelte";
 
   export let interactionName: IInteractionName;
@@ -17,4 +18,6 @@
   <SpotifyEmbed {result} />
 {:else if interactionName === "embed.games"}
   <GamesEmbed {result} />
+{:else if interactionName === "generate.password"}
+  <PasswordGen {result} />
 {/if}

@@ -12,8 +12,8 @@ export class ActivitiesService {
   static async getActivitiesForTOD(tod: TimeOfDay): Promise<Array<Activity>> {
     return await ActivitiesService.remote.call("ActivitiesService.getActivitiesForTOD", tod);
   }
-  static async useActivity(interactionName: InteractionName): Promise<UseActivityResult> {
-    return await ActivitiesService.remote.call("ActivitiesService.useActivity", interactionName);
+  static async useActivity(interactionName: InteractionName, options: UseActivityOptions | any): Promise<UseActivityResult> {
+    return await ActivitiesService.remote.call("ActivitiesService.useActivity", interactionName, options);
   }
 }
 
