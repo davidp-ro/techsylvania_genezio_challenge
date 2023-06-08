@@ -23,6 +23,24 @@ export const MORNING_ACTIVITIES: Activity[] = [
     isInteractive: true,
     interactionName: "fetch.hackernews",
   },
+  {
+    id: 7,
+    name: "Morning Vibes",
+    description: "Listen to a morning playlist, picked for you",
+    type: "embed.iframe",
+    imageHref: "/activities/music.jpg",
+    isInteractive: true,
+    interactionName: "embed.spotify",
+  },
+  {
+    id: 8,
+    name: "Take a guess",
+    description: "Play some good old wordle",
+    type: "embed.iframe",
+    imageHref: "/activities/wordle.jpg",
+    isInteractive: true,
+    interactionName: "embed.games",
+  },
 ];
 
 export const AFTERNOON_ACTIVITIES: Activity[] = [

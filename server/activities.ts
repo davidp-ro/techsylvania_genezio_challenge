@@ -1,4 +1,6 @@
+import { GamesIntegration } from "./integrations/games";
 import { HackerNewsIntegration } from "./integrations/hackerNews";
+import { SpotifyIntegration } from "./integrations/spotify";
 import {
   TimeOfDay,
   Activity,
@@ -38,6 +40,27 @@ export class ActivitiesService {
           },
           success: res.ok,
           data: res.items,
+        };
+      case "embed.spotify":
+        return {
+          pageData: {
+            title: "Start off your day with some good vibes!",
+          },
+          success: true,
+          data: {
+            url: SpotifyIntegration.getSpotifyPlaylistUri("standalone"),
+            embedHTML: SpotifyIntegration.getSpotifyEmbedCode(),
+          },
+        };
+      case "embed.games":
+        return {
+          pageData: {
+            title: "Start off your day with some guesses!",
+          },
+          success: true,
+          data: {
+            embedHTML: GamesIntegration.getWebsiteEmbedCode(),
+          },
         };
       default:
         return {
