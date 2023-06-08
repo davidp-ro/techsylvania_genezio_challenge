@@ -10,11 +10,16 @@ type HardActivityType =
 type SoftActivityType = "body.exercise" | "mind.meditation" | "mind.journaling";
 type ActivityType = SoftActivityType | HardActivityType;
 
+type InteractionName = "fetch.hackernews" | "generate.password";
+
 interface Activity {
   id: number;
   name: string;
   description: string;
   type: ActivityType;
+  imageHref: string;
+  isInteractive: boolean;
+  interactionName?: InteractionName;
 }
 
 interface UseActivityResult {

@@ -3,7 +3,7 @@
 </script>
 
 <nav
-  class="relative top-0 z-20 flex items-center justify-between w-full p-6 bg-white"
+  class="relative top-0 z-20 flex items-center justify-between w-full p-6 bg-transparent"
 >
   <a href="/"><img class="h-12" src="/fling_Logo.svg" alt="logo" /></a>
 

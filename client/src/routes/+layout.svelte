@@ -1,9 +1,15 @@
 <script lang="ts">
   import "../app.postcss";
-  import Navbar from "../lib/components/navbar.svelte";
+  import { isHome } from "$lib/globalStores";
+  import Navbar from "$lib/components/navbar.svelte";
+  import BackgroundBlob from "$lib/components/backgroundBlob.svelte";
 </script>
 
-<main class="antialiased relative w-full bg-white">
+{#if $isHome}
+  <BackgroundBlob />
+{/if}
+
+<main class="antialiased absolute top-0 left-0 z-10 w-full h-full">
     <div class="px-8 pb-12 mx-auto max-w-7xl md:pb-20 lg:pb-24">
       <Navbar />
       <slot />
