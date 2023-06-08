@@ -1,3 +1,10 @@
+import { HackerNewsIntegration } from "./integrations/hackerNews";
+import {
+  TimeOfDay,
+  Activity,
+  InteractionName,
+  UseActivityResult,
+} from "./models/activity";
 import {
   MORNING_ACTIVITIES,
   AFTERNOON_ACTIVITIES,
@@ -19,7 +26,25 @@ export class ActivitiesService {
     }
   }
 
-  public useActivity(activityId: number): UseActivityResult {
-    return { success: true, data: {} };
+  public async useActivity(
+    interactionName: InteractionName
+  ): Promise<UseActivityResult> {
+    switch (interactionName) {
+      case "fetch.hackernews":
+        let res = await HackerNewsIntegration.fetchTodaysTop10();
+        return {
+          pageData: {
+            title: "Top 10 HackerNews Articles",
+          },
+          success: res.ok,
+          data: res.items,
+        };
+      default:
+        return {
+          pageData: { title: "Unknown interaction" },
+          success: false,
+          data: "Unknown interaction",
+        };
+    }
   }
 }

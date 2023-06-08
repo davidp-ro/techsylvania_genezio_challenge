@@ -3,6 +3,8 @@
 // TODO: Feedback for genezio - I can't figure out how to have env vars so
 // I opted to not use an actual db.. Sorry if I just missed something in the docs!
 
+import { Activity } from "../models/activity";
+
 export const MORNING_ACTIVITIES: Activity[] = [
   {
     id: 1,
@@ -20,7 +22,7 @@ export const MORNING_ACTIVITIES: Activity[] = [
     imageHref: "/activities/news.jpg",
     isInteractive: true,
     interactionName: "fetch.hackernews",
-  }
+  },
 ];
 
 export const AFTERNOON_ACTIVITIES: Activity[] = [
@@ -40,7 +42,7 @@ export const AFTERNOON_ACTIVITIES: Activity[] = [
     imageHref: "/activities/pass.jpg",
     isInteractive: true,
     interactionName: "generate.password",
-  }
+  },
 ];
 
 export const EVENING_ACTIVITIES: Activity[] = [

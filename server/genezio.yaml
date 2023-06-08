@@ -4,6 +4,8 @@ cloudProvider: aws
 sdk:
   language: ts
   path: ./sdk/
+scripts:
+  preBackendDeploy: "npm i"
 classes:
   - path: activities.ts
     type: jsonrpc

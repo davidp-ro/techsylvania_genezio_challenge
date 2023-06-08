@@ -16,7 +16,7 @@
     <span
       class="font-semibold text-sm whitespace-nowrap tracking-wide"
     >
-      {!($isHome) ? "Get started!" : "View GitHub Repo"}
+      {!($isHome) ? "Dashboard" : "View GitHub Repo"}
     </span>
   </a>
 </nav>

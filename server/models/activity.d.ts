@@ -8,11 +8,11 @@ type HardActivityType =
   | "code.writing"
   | "code.work";
 type SoftActivityType = "body.exercise" | "mind.meditation" | "mind.journaling";
-type ActivityType = SoftActivityType | HardActivityType;
+export type ActivityType = SoftActivityType | HardActivityType;
 
-type InteractionName = "fetch.hackernews" | "generate.password";
+export type InteractionName = "fetch.hackernews" | "generate.password";
 
-interface Activity {
+export interface Activity {
   id: number;
   name: string;
   description: string;
@@ -22,7 +22,12 @@ interface Activity {
   interactionName?: InteractionName;
 }
 
-interface UseActivityResult {
+interface PageData {
+  title: string;
+}
+
+export interface UseActivityResult {
+  pageData: PageData;
   success: boolean;
   data?: any;
 }
