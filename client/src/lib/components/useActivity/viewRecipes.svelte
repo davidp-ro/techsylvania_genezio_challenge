@@ -6,6 +6,7 @@
     type IAvailableCategories,
     type IUseActivityResult,
   } from "$lib/services/genezio";
+  import RecipeCard from "./recipeCard.svelte";
   import RecipeCategoryCard from "./recipeCategoryCard.svelte";
 
   export let result: IUseActivityResult;
@@ -39,6 +40,24 @@
 
     isLoading.set(false);
   };
+
+  const getRecipe = async (id: string) => {
+    isLoading.set(true);
+
+    const res: IUseActivityResult = await GenezioWrapper.activities.useActivity(
+      "fetch.recipe+detailed",
+      {
+        recipeId: id,
+      }
+    );
+
+    if (res.success) {
+      result.pageData = res.pageData;
+      recipe.set(res.data);
+    }
+
+    isLoading.set(false);
+  };
 </script>
 
 <h1 class="text-5xl mb-4">{result.pageData.title}</h1>
@@ -46,8 +65,17 @@
 <button
   class="btn btn-ghost normal-case mb-8"
   on:click={() => {
-    isLoading.set(true);
-    goto("/home");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if ($recipe !== null) {
+      recipe.set(null);
+      result.pageData.title = "Here are some recipes for you!";
+    } else if ($availableRecipies !== null) {
+      availableRecipies.set(null);
+      result.pageData.title = "Pick a category";
+    } else {
+      isLoading.set(true);
+      goto("/home");
+    }
   }}
 >
   <svg
@@ -60,15 +88,40 @@
       d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20v-2z"
     />
   </svg>
-  Go back
+
+  {#if $recipe !== null}
+    Choose another recipe
+  {:else if $availableRecipies !== null}
+    Choose another category
+  {:else}
+    Go back
+  {/if}
 </button>
 
 {#if $recipe !== null}
-  <h1>a</h1>
+  <RecipeCard />
 {:else if $availableRecipies !== null}
-  {#each $availableRecipies as recipeOption}
-    {recipeOption.strMeal} <br />
-  {/each}
+  <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12">
+    {#each $availableRecipies as recipeOption}
+      <div
+        class="card shadow-md transition-colors hover:bg-primary hover:bg-opacity-10"
+      >
+        <div class="card-body">
+          <h2 class="card-title">{recipeOption.strMeal}</h2>
+          <div class="card-actions justify-end">
+            <button
+              class="btn btn-ghost normal-case"
+              on:click={() => {
+                getRecipe(recipeOption.idMeal);
+              }}
+            >
+              Pick
+            </button>
+          </div>
+        </div>
+      </div>
+    {/each}
+  </div>
 {:else}
   <div
     class="grid grid-cols-1 mb-24 md:grid-cols-2 lg:grid-cols-4 gap-x-24 gap-y-10"
