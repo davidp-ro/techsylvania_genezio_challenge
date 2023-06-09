@@ -6,6 +6,7 @@
  */
 
 import { ActivitiesService } from "../../../../server/sdk/activitiesService.sdk";
+import { OpenAIService } from "../../../../server/sdk/openAIService.sdk";
 import type {
   ActivityType,
   InteractionName,
@@ -43,4 +44,5 @@ export type IRecipe = Recipe;
 
 export const GenezioWrapper = {
   activities: ActivitiesService,
+  openai: OpenAIService,
 };

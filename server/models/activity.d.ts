@@ -22,7 +22,8 @@ export type InteractionName =
   | "embed.games"
   | "view.recipes" // Client side only
   | "fetch.recipes"
-  | "fetch.recipe+detailed";
+  | "fetch.recipe+detailed"
+  | "openai.regex" // Client side only;
 
 export interface Activity {
   id: number;

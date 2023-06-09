@@ -45,12 +45,13 @@ export const MORNING_ACTIVITIES: Activity[] = [
 
 export const AFTERNOON_ACTIVITIES: Activity[] = [
   {
-    id: 3,
-    name: "Go for a walk",
-    description: "Take a walk around the block",
-    type: "body.exercise",
-    imageHref: "/activities/walk.jpg",
-    isInteractive: false,
+    id: 10,
+    name: "Regex Generator",
+    description: "Generate a regex for a task",
+    type: "code.automation",
+    imageHref: "/activities/regex.jpg",
+    isInteractive: true,
+    interactionName: "openai.regex",
   },
   {
     id: 4,
@@ -69,7 +70,15 @@ export const AFTERNOON_ACTIVITIES: Activity[] = [
     imageHref: "/activities/recipe.jpg",
     isInteractive: true,
     interactionName: "view.recipes",
-  }
+  },
+  {
+    id: 3,
+    name: "Go for a walk",
+    description: "Take a walk around the block",
+    type: "body.exercise",
+    imageHref: "/activities/walk.jpg",
+    isInteractive: false,
+  },
 ];
 
 export const EVENING_ACTIVITIES: Activity[] = [

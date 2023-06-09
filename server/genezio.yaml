@@ -10,3 +10,6 @@ classes:
   - path: activities.ts
     type: jsonrpc
     methods: []
+  - path: openai.ts
+    type: jsonrpc
+    methods: []

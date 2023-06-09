@@ -4,6 +4,7 @@
     IUseActivityResult,
   } from "$lib/services/genezio";
   import GamesEmbed from "./gamesEmbed.svelte";
+  import GenerateRegex from "./generateRegex.svelte";
   import HackerNews from "./hackerNews.svelte";
   import PasswordGen from "./passwordGen.svelte";
   import SpotifyEmbed from "./spotifyEmbed.svelte";
@@ -23,4 +24,6 @@
   <PasswordGen {result} />
 {:else if interactionName === "view.recipes"}
   <ViewRecipes {result} />
+{:else if interactionName === "openai.regex"}
+  <GenerateRegex {result} />
 {/if}

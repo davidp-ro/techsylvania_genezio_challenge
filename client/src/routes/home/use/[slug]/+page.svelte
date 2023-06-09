@@ -42,6 +42,17 @@
           data: null
         }
         break;
+      case "openai.regex":
+        // "openai.regex" is also a client-side only interaction as we'll
+        // use the dedicated openai function at the next step
+        result = {
+          pageData: {
+            title: "Generate a regex",
+          },
+          success: true,
+          data: null
+        }
+        break;
       default:
         result = await GenezioWrapper.activities.useActivity(
           data.interactionName,
