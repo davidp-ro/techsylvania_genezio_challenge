@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { recipe } from "$lib/globalStores";
+  import { recipe } from "$lib/activitiesStores";
   import { onMount } from "svelte";
 
   type IngredientWithMeasure = { i: string; m: string };

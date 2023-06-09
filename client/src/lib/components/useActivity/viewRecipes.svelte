@@ -1,6 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import { availableRecipies, isLoading, recipe } from "$lib/globalStores";
+  import { availableRecipies, recipe } from "$lib/activitiesStores";
+  import { isLoading } from "$lib/globalStores";
   import {
     GenezioWrapper,
     type IAvailableCategories,
