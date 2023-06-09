@@ -1,3 +1,6 @@
+/**
+ * Spotify integration
+ */
 export class SpotifyIntegration {
   /**
    * @returns Spotify "Feel Good Morning" playlist URI
@@ -10,6 +13,11 @@ export class SpotifyIntegration {
     return "https://open.spotify.com/embed/playlist/37i9dQZF1EIhxsZ1zwdwMW";
   }
   
+  /**
+   * Get the "Feel Good Morning" playlist as an iframe
+   * 
+   * @returns HTML iframe for the Spotify playlist
+   */
   public static getSpotifyEmbedCode(): string {
     return /*html*/`
     <iframe 

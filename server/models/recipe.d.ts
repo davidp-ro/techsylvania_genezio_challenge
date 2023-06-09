@@ -1,3 +1,6 @@
+/**
+ * Available categories for recipes
+ */
 export type AvailableCategories =
   | "Breakfast"
   | "Beef"
@@ -8,22 +11,36 @@ export type AvailableCategories =
   | "Vegetarian"
   | "Vegan";
 
-export interface FetchRecipesOptions {
+/**
+ * Options for fetching recipes
+ */
+  export interface FetchRecipesOptions {
   query?: AvailableCategories;
   recipeId?: string;
 }
 
+/**
+ * Result object from method
+ * 
+ * @template T should be RecipeSearchResult or Recipe
+ */
 export interface TheMealDbResult<T> {
   ok: boolean;
   data: T;
 }
 
+/**
+ * Recipe search result object as recieved from TheMealDB
+ */
 export interface RecipeSearchResult {
   strMeal: string;
   strMealThumb: string;
   idMeal: string;
 }
 
+/**
+ * Recipe object as recieved from TheMealDB. Very ugly, I'll admit.
+ */
 export interface Recipe {
   idMeal: string;
   strMeal: string;

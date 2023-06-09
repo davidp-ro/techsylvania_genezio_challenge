@@ -17,7 +17,16 @@ import {
   NIGHT_ACTIVITIES,
 } from "./repo/activityRepo";
 
+/**
+ * Service for interacting with the activities, getting the current activities
+ */
 export class ActivitiesService {
+  /**
+   * Get the activities for the given time of day
+   *
+   * @param tod current time of day
+   * @returns matching activities
+   */
   public getActivitiesForTOD(tod: TimeOfDay): Activity[] {
     switch (tod) {
       case "morning":
@@ -31,11 +40,20 @@ export class ActivitiesService {
     }
   }
 
+  /**
+   * Use an interactive activity! Some activities require options, some do not,
+   * all have a common return type (@see UseActivityResult).
+   *
+   * @param interactionName what interaction to use
+   * @param options some integrations require options, pass them here
+   * @returns interaction result
+   */
   public async useActivity(
     interactionName: InteractionName,
     options: UseActivityOptions | undefined
   ): Promise<UseActivityResult> {
     switch (interactionName) {
+      // Fetch top 10 HackerNews articles
       case "fetch.hackernews":
         let res = await HackerNewsIntegration.fetchTodaysTop10();
         return {
@@ -45,6 +63,7 @@ export class ActivitiesService {
           success: res.ok,
           data: res.items,
         };
+      // Embed Spotify playlist
       case "embed.spotify":
         return {
           pageData: {
@@ -56,6 +75,7 @@ export class ActivitiesService {
             embedHTML: SpotifyIntegration.getSpotifyEmbedCode(),
           },
         };
+      // Embed minigames
       case "embed.games":
         return {
           pageData: {
@@ -66,6 +86,8 @@ export class ActivitiesService {
             embedHTML: GamesIntegration.getWebsiteEmbedCode(),
           },
         };
+      // Generate a password
+      // TODO: clean up, this has kinda janky error handling
       case "generate.password":
         try {
           if (!options) {
@@ -92,6 +114,7 @@ export class ActivitiesService {
             data: JSON.stringify(e),
           };
         }
+      // Fetch some recipes
       case "fetch.recipes":
         try {
           if (!options) {
@@ -115,6 +138,7 @@ export class ActivitiesService {
             data: JSON.stringify(e),
           };
         }
+      // Fetch a specific recipe
       case "fetch.recipe+detailed":
         try {
           if (!options) {
@@ -138,6 +162,7 @@ export class ActivitiesService {
             data: JSON.stringify(e),
           };
         }
+      // "match-all" if no interaction is found
       default:
         return {
           pageData: { title: "Unknown interaction" },

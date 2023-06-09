@@ -2,7 +2,15 @@ import { HackerNewsResult, HackerNewsItem } from "../models/hackerNewsItem";
 
 const fetch = require("node-fetch");
 
+/**
+ * This is a simple integration with HackerNews
+ */
 export class HackerNewsIntegration {
+  /**
+   * Fetch the top 10 stories from HN
+   * 
+   * @returns A promise that resolves to a list of the top 10 stories
+   */
   public static async fetchTodaysTop10(): Promise<HackerNewsResult> {
     try {
       const res = await fetch(
@@ -23,6 +31,9 @@ export class HackerNewsIntegration {
       const json = (await res.json()) as number[];
 
       for (let idx = 0; idx < 10; ++idx) {
+        /**
+         * Fetching an individual article
+         */
         const itemRes = await fetch(
           `https://hacker-news.firebaseio.com/v0/item/${json[idx]}.json`
         );

@@ -6,7 +6,17 @@ import {
 import dotenv from "dotenv";
 dotenv.config();
 
+/**
+ * Service for interacting with the OpenAI API
+ */
 export class OpenAIService {
+  /**
+   * Generate a regex for a given task
+   * 
+   * @param task complete the prompt "Create a regex that ${task}"
+   * @returns GPT-3 generated regex (possibly with some other content, but we
+   * try to avoid that, see "Reply ONLY with the REGEX")
+   */
   public async generateRegexForPrompt(task: string): Promise<string | null> {
     const openai = new OpenAIApi(
       new Configuration({ apiKey: process.env.OPENAI_SK })

@@ -1,4 +1,12 @@
+/**
+ * "Minigames" that can be embedded into the app
+ */
 export class GamesIntegration {
+  /**
+   * Get an iframe containing the minigames website
+   * 
+   * @returns HTML iframe embed code for the wordle game
+   */
   public static getWebsiteEmbedCode(): string {
     return /*html*/`
     <iframe 

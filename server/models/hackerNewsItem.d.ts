@@ -1,3 +1,6 @@
+/**
+ * Hacker News Article, as returned by the API
+ */
 export interface HackerNewsItem {
   "by": string,
   "descendants": number,
@@ -10,6 +13,9 @@ export interface HackerNewsItem {
   "url": string
 }
 
+/**
+ * Method reply 
+ */
 export interface HackerNewsResult {
   ok: boolean,
   items: HackerNewsItem[],

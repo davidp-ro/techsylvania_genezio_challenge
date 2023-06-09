@@ -7,7 +7,16 @@ import {
 
 const fetch = require("node-fetch");
 
+/**
+ * TheMealDb integration
+ */
 export class TheMealDbIntegration {
+  /**
+   * Fetches some recipes from TheMealDb
+   * 
+   * @param options meal search options - the category to search for
+   * @returns found recipes matching the category
+   */
   public static async searchRecipes(
     options: FetchRecipesOptions
   ): Promise<TheMealDbResult<RecipeSearchResult[]>> {
@@ -45,6 +54,12 @@ export class TheMealDbIntegration {
     }
   }
 
+  /**
+   * Get the details of a recipe (ingredients, instructions, etc)
+   * 
+   * @param options recipe search options - the recipe id to search for
+   * @returns the recipe
+   */
   public static async getRecipeDetails(
     options: FetchRecipesOptions
   ): Promise<TheMealDbResult<Recipe | null>> {
