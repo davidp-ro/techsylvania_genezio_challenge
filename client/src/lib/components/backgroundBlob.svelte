@@ -49,7 +49,7 @@
   .blob {
     @apply invisible md:visible h-80 w-80 opacity-30 rounded-full
       fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-      bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500;
+      bg-gradient-to-r from-accent via-secondary to-primary;
 
     animation: scaling 5s infinite ease-in-out;
   }
