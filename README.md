@@ -34,7 +34,17 @@ for the almighty [bac](https://en.wikipedia.org/wiki/Romanian_Baccalaureate)) an
 
 ## Deployment
 
-TODO - Deploy your full-stack solution using [genezio](https://genez.io/). You can use [these examples](https://github.com/Genez-io/genezio-examples) as a starting point.
+<h2 align=center>
+  <a href="https://fling-dash.vercel.app/">fling-dash.vercel.app</a>
+</h2>
+<p align=center>
+  Client deployed on Vercel, it wasn't 100% clear to me how to use genezio for the frontend, and I'm really tired at this point, sorry 🫶
+  <br />
+  Backend fully on genezio.
+</p>
 
-TODO - Provide a link to your live app so we can test it out.
+---
 
+<p align=center>
+  Made with ❤️ for the Genezio Techsylvania Challenge by David Pescariu
+</p>
