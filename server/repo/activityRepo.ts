@@ -61,6 +61,15 @@ export const AFTERNOON_ACTIVITIES: Activity[] = [
     isInteractive: true,
     interactionName: "generate.password",
   },
+  {
+    id: 9,
+    name: "Are you hungry?",
+    description: "Get a new recipe",
+    type: "chore.cook",
+    imageHref: "/activities/recipe.jpg",
+    isInteractive: true,
+    interactionName: "view.recipes",
+  }
 ];
 
 export const EVENING_ACTIVITIES: Activity[] = [
@@ -71,6 +80,24 @@ export const EVENING_ACTIVITIES: Activity[] = [
     type: "mind.journaling",
     imageHref: "/activities/read.jpg",
     isInteractive: false,
+  },
+  {
+    id: 9,
+    name: "Are you hungry?",
+    description: "Get a new recipe",
+    type: "chore.cook",
+    imageHref: "/activities/recipe.jpg",
+    isInteractive: true,
+    interactionName: "view.recipes",
+  },
+  {
+    id: 8,
+    name: "Take a guess",
+    description: "Play some good old wordle",
+    type: "embed.iframe",
+    imageHref: "/activities/wordle.jpg",
+    isInteractive: true,
+    interactionName: "embed.games",
   },
 ];
 
