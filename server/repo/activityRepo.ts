@@ -1,7 +1,7 @@
-// We'll just pretend that this is an actual database.
-//
-// TODO: Feedback for genezio - I can't figure out how to have env vars so
-// I opted to not use an actual db.. Sorry if I just missed something in the docs!
+/**
+ * We'll just pretend that this is an actual database, as I did not figure out
+ * that in order to use env vars all I had to do was to have a .env...
+ */
 
 import { Activity } from "../models/activity";
 
@@ -108,6 +108,14 @@ export const EVENING_ACTIVITIES: Activity[] = [
     isInteractive: true,
     interactionName: "embed.games",
   },
+  {
+    id: 11,
+    name: "Evening Pages",
+    description: "Write for a bit, maybe about your day",
+    type: "mind.journaling",
+    imageHref: "/activities/writing.jpg",
+    isInteractive: false,
+  },
 ];
 
 export const NIGHT_ACTIVITIES: Activity[] = [
@@ -117,6 +125,14 @@ export const NIGHT_ACTIVITIES: Activity[] = [
     description: "Meditate for 10 minutes",
     type: "mind.meditation",
     imageHref: "/activities/meditate.jpg",
+    isInteractive: false,
+  },
+  {
+    id: 12,
+    name: "Go to sleep",
+    description: "You should probably go rest now",
+    type: "mind.meditation",
+    imageHref: "/activities/sleep.jpg",
     isInteractive: false,
   },
 ];
