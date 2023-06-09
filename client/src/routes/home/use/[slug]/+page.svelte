@@ -31,6 +31,17 @@
           generatorOptions
         );
         break;
+      case "view.recipes":
+        // "view.recipes" is meant as a client-side only "step"
+        // before actually fetching anything
+        result = {
+          pageData: {
+            title: "Pick a category",
+          },
+          success: true,
+          data: null
+        }
+        break;
       default:
         result = await GenezioWrapper.activities.useActivity(
           data.interactionName,

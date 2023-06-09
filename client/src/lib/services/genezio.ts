@@ -17,6 +17,13 @@ import type {
   HackerNewsResult,
 } from "../../../../server/models/hackerNewsItem";
 import type { PasswordGenOptions } from "../../../../server/models/passwordGenerator";
+import type {
+  FetchRecipesOptions,
+  TheMealDbResult,
+  RecipeSearchResult,
+  Recipe,
+  AvailableCategories,
+} from "../../../../server/models/recipe";
 
 export type IActivityType = ActivityType;
 export type IInteractionName = InteractionName;
@@ -27,6 +34,12 @@ export type IHackerNewsItem = HackerNewsItem;
 export type IHackerNewsResult = HackerNewsResult;
 
 export type IPasswordGenOptions = PasswordGenOptions;
+
+export type IAvailableCategories = AvailableCategories;
+export type IFetchRecipesOptions = FetchRecipesOptions;
+export type ITheMealDbResult<T> = TheMealDbResult<T>;
+export type IRecipeSearchResult = RecipeSearchResult;
+export type IRecipe = Recipe;
 
 export const GenezioWrapper = {
   activities: ActivitiesService,
