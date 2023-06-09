@@ -2,7 +2,7 @@
  * Wrap the generated Genez.io SDK & types/models for ease of use
  *
  * Preferred this as just exporting the sdk in src/lib would leave out the types
- * anyway
+ * anyway & some other weird issues possibly related to SvelteKit
  */
 
 import { ActivitiesService } from "../../../../server/sdk/activitiesService.sdk";
@@ -26,6 +26,8 @@ import type {
   AvailableCategories,
 } from "../../../../server/models/recipe";
 
+/**********************************[ Types ]***********************************/
+
 export type IActivityType = ActivityType;
 export type IInteractionName = InteractionName;
 export type IActivity = Activity;
@@ -41,6 +43,8 @@ export type IFetchRecipesOptions = FetchRecipesOptions;
 export type ITheMealDbResult<T> = TheMealDbResult<T>;
 export type IRecipeSearchResult = RecipeSearchResult;
 export type IRecipe = Recipe;
+
+/********************************[ Services ]**********************************/
 
 export const GenezioWrapper = {
   activities: ActivitiesService,
