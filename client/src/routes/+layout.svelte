@@ -16,6 +16,10 @@
     </div>
 </main>
 
+<svelte:head>
+  <title>fling - Your Smart Dashboard</title>
+</svelte:head>
+
 <style global lang="postcss">
   body {
     @apply antialiased bg-white text-gray-900 selection:bg-primary selection:text-gray-100;
